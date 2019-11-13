@@ -216,6 +216,23 @@ MainWindow::MainWindow(ctrl::System& aSystem, GUIResources& aResources, const Lo
         dockWidget->setWidget(mTool);
     }
 
+    // create project info widget
+    {
+        QDockWidget* dockWidget = new QDockWidget(this);
+        dockWidget->setWindowTitle(tr("Info Dock"));
+        dockWidget->setFeatures(QDockWidget::DockWidgetClosable | QDockWidget::DockWidgetFloatable | QDockWidget::DockWidgetMovable);
+        this->addDockWidget(Qt::LeftDockWidgetArea, dockWidget);
+
+        /*
+        QFile stylesheet("data/stylesheet/toolwidget.ssa");
+        if (stylesheet.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            dockWidget->setStyleSheet(QTextStream(&stylesheet).readAll());
+        }*/
+        mInfoWidget = new InfoWidget(mViaPoint, mGUIResources, *mKeyCommandMap, QSize(192, 32), dockWidget);
+        dockWidget->setWidget(mInfoWidget);
+    }
+
     // create resource dialog
     {
         mResourceDialog = new ResourceDialog(mViaPoint, false, this);

@@ -13,6 +13,7 @@
 #include "gui/TargetWidget.h"
 #include "gui/PropertyWidget.h"
 #include "gui/ToolWidget.h"
+#include "gui/InfoWidget.h"
 #include "gui/DriverHolder.h"
 #include "gui/GUIResources.h"
 #include "gui/ViaPoint.h"
@@ -77,6 +78,7 @@ private:
     TargetWidget* mTarget;
     PropertyWidget* mProperty;
     ToolWidget* mTool;
+    InfoWidget* mInfoWidget;
     ResourceDialog* mResourceDialog;
     QScopedPointer<DriverHolder> mDriverHolder;
     core::Project* mCurrent;

@@ -63,6 +63,7 @@ SOURCES += \
     PropertyWidget.cpp \
     TimeLineWidget.cpp \
     ToolWidget.cpp \
+    InfoWidget.cpp \
     TargetWidget.cpp \
     prop/prop_Panel.cpp \
     prop/prop_KeyGroup.cpp \
@@ -127,6 +128,7 @@ HEADERS += \
     PropertyWidget.h \
     TimeLineWidget.h \
     ToolWidget.h \
+    InfoWidget.h \
     TargetWidget.h \
     prop/prop_Panel.h \
     prop/prop_KeyGroup.h \
