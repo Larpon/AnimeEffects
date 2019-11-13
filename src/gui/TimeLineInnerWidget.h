@@ -36,7 +36,10 @@ private:
     public:
         TimeCursor(QWidget* aParent);
         void setCursorPos(const QPoint& aPos, int aHeight);
+        void setCurrentFrame(core::Frame frame);
         virtual void paintEvent(QPaintEvent* aEvent);
+    private:
+        core::Frame mFrame;
     };
 
     void updateTimeCursorPos();

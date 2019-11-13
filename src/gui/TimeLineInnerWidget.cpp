@@ -15,11 +15,16 @@ TimeLineInnerWidget::TimeCursor::TimeCursor(QWidget* aParent)
 
 void TimeLineInnerWidget::TimeCursor::setCursorPos(const QPoint& aPos, int aHeight)
 {
-    const QPoint range(5, 5);
+    const QPoint range(8, 8);
     QRect rect;
     rect.setTopLeft(aPos - range);
     rect.setBottomRight(aPos + range + QPoint(0, aHeight));
     this->setGeometry(rect);
+}
+
+void TimeLineInnerWidget::TimeCursor::setCurrentFrame(core::Frame frame)
+{
+    mFrame = frame;
 }
 
 void TimeLineInnerWidget::TimeCursor::paintEvent(QPaintEvent* aEvent)
@@ -28,7 +33,7 @@ void TimeLineInnerWidget::TimeCursor::paintEvent(QPaintEvent* aEvent)
     QPainter painter;
     painter.begin(this);
 
-    const QPoint range(5, 5);
+    const QPoint range(8, 8);
     const QBrush kBrushBody(QColor(230, 230, 230, 180));
     const QBrush kBrushEdge(QColor(80, 80, 80, 180));
 
@@ -38,6 +43,8 @@ void TimeLineInnerWidget::TimeCursor::paintEvent(QPaintEvent* aEvent)
 
     painter.setRenderHint(QPainter::Antialiasing);
     painter.drawEllipse(QPointF(range), range.x() - 0.5f, range.y() - 0.5f);
+
+    painter.drawText(QPointF(4,8+4), QString::number(mFrame.get()));
 
     painter.end();
 }
@@ -139,6 +146,7 @@ void TimeLineInnerWidget::updateTimeCursorPos()
         mTimeCursor.setCursorPos(
                     QPoint(pos.x(), pos.y() - (int)mCamera->leftTopPos().y()),
                     mCamera->screenHeight());
+        mTimeCursor.setCurrentFrame(currentFrame());
     }
 }
 
