@@ -19,10 +19,10 @@ void Renderer::renderLines(const QVector<TimeLineRow>& aRows, const QRect& aCame
     // draw each line
     mPainter.setRenderHint(QPainter::Antialiasing);
 
-    const QBrush kBrushBody(QColor(250, 250, 250, 255));
-    const QBrush kBrushBodySelect(QColor(235, 240, 250, 255));
-    const QBrush kBrushEdge(QColor(190, 190, 190, 255));
-    const QBrush kBrushSepa(QColor(200, 200, 205, 255));
+    const QBrush kBrushBody(QColor(250, 250, 250, 80));
+    const QBrush kBrushBodySelect(QColor(235, 240, 250, 155));
+    const QBrush kBrushEdge(QColor(190, 190, 190, 155));
+    const QBrush kBrushSepa(QColor(200, 200, 205, 155));
     const QBrush kBrushText(QColor(170, 170, 170, 255));
     const int textWidth = 100;
     const int textLeft = aCameraRect.center().x() - textWidth / 2;

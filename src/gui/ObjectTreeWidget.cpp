@@ -70,7 +70,7 @@ ObjectTreeWidget::ObjectTreeWidget(ViaPoint& aViaPoint, GUIResources& aResources
     this->setUniformRowHeights(false);
     this->setDragDropMode(DragDropMode::InternalMove);
     this->setDefaultDropAction(Qt::TargetMoveAction);
-    //this->setAlternatingRowColors(true);
+    this->setAlternatingRowColors(true);
     this->setVerticalScrollMode(QAbstractItemView::ScrollPerItem);
     this->setHorizontalScrollMode(QAbstractItemView::ScrollPerItem);
     //this->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
@@ -244,7 +244,7 @@ obj::Item* ObjectTreeWidget::createFolderItem(core::ObjectNode& aNode)
 
     obj::Item* item = new obj::Item(*this, aNode);
     item->setSizeHint(kItemColumn, QSize(kItemSize, itemHeight(aNode)));
-    item->setBackgroundColor(kItemColumn, QColor(235, 235, 235, 255));
+    //item->setBackgroundColor(kItemColumn, QColor(235, 235, 235, 255));
     item->setIcon(kItemColumn, mResources.icon("folder"));
     item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
     item->setCheckState(kItemColumn, aNode.isVisible() ? Qt::Checked : Qt::Unchecked);
